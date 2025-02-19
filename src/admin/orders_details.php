@@ -7,7 +7,7 @@ if (isset($_GET['order_id'])) {
     die('Order ID not provided.');
 }
 
-$order_details = $conn->prepare("SELECT * FROM order_details WHERE order_id = ?");
+$order_details = $conn->prepare("SELECT * FROM order_detail WHERE order_id = ?");
 if (!$order_details) {
     die('Error preparing the query: ' . $conn->error);
 }
@@ -49,5 +49,6 @@ include "header.html";
             </tr>
         <?php endif; ?>
     </table>
+    <a href="orders.php">Back to List</a>
 </body>
 </html>

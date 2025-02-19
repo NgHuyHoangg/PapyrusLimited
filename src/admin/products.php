@@ -4,13 +4,13 @@ include 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_product'])) {
         $name = htmlspecialchars($_POST['name']);
-        $category_id = intval($_POST['category_id']);
+        $catagory_id = intval($_POST['catagory_id']);
         $price = floatval($_POST['price']);
         $description = htmlspecialchars($_POST['description']);
         $material = htmlspecialchars($_POST['material']);
 
-        $stmt = $conn->prepare("INSERT INTO products (name, category_id, price, description, material) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sidss", $name, $category_id, $price, $description, $material);
+        $stmt = $conn->prepare("INSERT INTO products (name, catagory_id, price, description, material) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sidss", $name, $catagory_id, $price, $description, $material);
         if (!$stmt->execute()) {
             echo "Error: " . $stmt->error;
         }
@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+$categories = $conn->query("SELECT * FROM categories ORDER BY name ASC");
+
 $products = $conn->query("SELECT * FROM products");
 ?>
 <!DOCTYPE html>
@@ -37,6 +39,15 @@ $products = $conn->query("SELECT * FROM products");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Products</title>
     <link rel="stylesheet" href="products.css">
+    <style>
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #ccc;
+        background-color: #f9f9f9;
+    }
+    </style>
+
     <script>
         function deleteProduct(productId) {
             if (confirm('Are you sure you want to delete this product?')) {
@@ -63,12 +74,21 @@ include "header.html";
     <h1>Product Management</h1>
     <form method="POST">
         <input type="text" name="name" placeholder="Product Name" required>
-        <input type="number" name="category_id" placeholder="Category ID" required>
+        <select name="catagory_id" required>
+            <option value="">Select Category</option>
+            <?php while ($category = $categories->fetch_assoc()): ?>
+                <option value="<?= htmlspecialchars($category['category_id']) ?>">
+                    <?= htmlspecialchars($category['name']) ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+
         <input type="number" name="price" placeholder="Price" required>
         <input type="text" name="description" placeholder="Description">
         <input type="text" name="material" placeholder="Material">
         <button type="submit" name="add_product">Add Product</button>
     </form>
+
     <table border="1">
         <tr>
             <th>ID</th>

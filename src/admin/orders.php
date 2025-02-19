@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$orders = $conn->query("SELECT * FROM orders");
+$orders = $conn->query("SELECT * FROM orders ORDER BY date DESC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@ include "header.html";
                 <td><?= htmlspecialchars($row['status']) ?></td>
                 <td><?= htmlspecialchars($row['shipping_address']) ?></td>
                 <td>
-                    <a style="background-color: #e57373;" href="order_details.php?order_id=<?= htmlspecialchars($row['order_id']) ?>">View Details</a> |
+                    <a style="background-color: #e57373;" href="orders_details.php?order_id=<?= htmlspecialchars($row['order_id']) ?>">View Details</a> |
                     <a href="edit2.php?order_id=<?= htmlspecialchars($row['order_id']) ?>">
                         <button type="button">Change Detail</button>
                     </a>

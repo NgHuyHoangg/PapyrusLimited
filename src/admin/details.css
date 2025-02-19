@@ -1,0 +1,56 @@
+/* details.css */
+
+/* Thiết lập kiểu cho body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Định dạng tiêu đề */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Định dạng bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff66a3;
+    color: white;
+}
+
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+td[colspan="3"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

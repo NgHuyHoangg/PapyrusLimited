@@ -223,12 +223,12 @@ session_start();
                 class="mt-5 mx-auto w-fit border rounded-md shadow-xl p-3 flex flex-col gap-2 items-center scroll-m-24">
                 <h1 class="text-2xl font-semibold">Give your feedback</h1>
                 <div>
-                    <i class='rating fa-regular fa-star text-yellow-400 text-xl cursor-pointer' id="1" value="1"></i>
-                    <i class='rating fa-regular fa-star text-yellow-400 text-xl cursor-pointer' id="2" value="2"></i>
-                    <i class='rating fa-regular fa-star text-yellow-400 text-xl cursor-pointer' id="3" value="3"></i>
-                    <i class='rating fa-regular fa-star text-yellow-400 text-xl cursor-pointer' id="4" value="4"></i>
-                    <i class='rating fa-regular fa-star text-yellow-400 text-xl cursor-pointer' id="5" value="5"></i>
-                    <input type="text" name="rating" id="rating" class="hidden">
+                    <i class='rating fa-solid fa-star text-yellow-400 text-xl cursor-pointer' id="1" value="1"></i>
+                    <i class='rating fa-solid fa-star text-yellow-400 text-xl cursor-pointer' id="2" value="2"></i>
+                    <i class='rating fa-solid fa-star text-yellow-400 text-xl cursor-pointer' id="3" value="3"></i>
+                    <i class='rating fa-solid fa-star text-yellow-400 text-xl cursor-pointer' id="4" value="4"></i>
+                    <i class='rating fa-solid fa-star text-yellow-400 text-xl cursor-pointer' id="5" value="5"></i>
+                    <input type="text" name="rating" id="rating" class="hidden" value="5">
                 </div>
                 <textarea name="content" id="content" cols="60" rows="10" class="border border-gray-200 p-2 w-full mt-2"
                     placeholder="Write your feedback here"></textarea>
