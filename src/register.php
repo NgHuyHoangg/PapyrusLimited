@@ -35,6 +35,11 @@ function validateRegister(){
             $error['email'] = "Email is not in the correct format!";
         } else {
             $data['email'] = trim($_POST['email']);
+            $sql_query_email = "SELECT * FROM accounts WHERE email = '".$data['email']."'";
+            $result_query_email = mysqli_query($conn, $sql_query_email);
+            if(mysqli_num_rows($result_query_email) > 0) {
+                $error['email'] = "Email already exists, please use another email!";
+            }
         }
     }
     
