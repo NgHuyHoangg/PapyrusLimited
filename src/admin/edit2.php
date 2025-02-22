@@ -49,15 +49,15 @@ include "header.html";
     <form method="POST">
         <input type="hidden" name="order_id" value="<?= htmlspecialchars($order['order_id']) ?>">
         <label>User ID:</label>
-        <input type="number" name="user_id" value="<?= htmlspecialchars($order['user_id']) ?>" required>
+        <input type="number" name="user_id" value="<?= htmlspecialchars($order['user_id']) ?>" readonly>
         <label>Date:</label>
-        <input type="text" name="date" value="<?= htmlspecialchars($order['date']) ?>" required>
+        <input type="text" name="date" value="<?= htmlspecialchars($order['date']) ?>" readonly>
         <label>Total Amount:</label>
-        <input type="number" name="total_amount" step="0.01" value="<?= htmlspecialchars($order['total_amount']) ?>" required>
+        <input type="number" name="total_amount" step="0.01" value="<?= htmlspecialchars($order['total_amount']) ?>" readonly>
         <label>Status:</label>
         <input type="text" name="status" value="<?= htmlspecialchars($order['status']) ?>" required>
         <label>Shipping Address:</label>
-        <input type="text" name="shipping_address" value="<?= htmlspecialchars($order['shipping_address']) ?>" required>
+        <input type="text" name="shipping_address" value="<?= htmlspecialchars($order['shipping_address']) ?>" readonly>
         <button type="submit">Update</button>
     </form>
 </body>
